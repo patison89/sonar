@@ -5,10 +5,44 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-   <ion-title middle>Properties</ion-title>
+    <ion-title middle>Properties</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item>
+      <ion-card *ngFor="let property of properties">
+        <img  onError="this.src='../../assets/imgs/home.jpg';" src="{{property.photos[0]}}">
+        <ion-card-content>
+          <ion-card-title>
+            {{property.price}}
+          </ion-card-title>
+          <p>
+            {{property.display_address}}
+          </p>
+          <ion-row no-padding>
+            <ion-col>
+              <button ion-button clear small color="danger" icon-start>
+                <ion-icon name='star'></ion-icon>
+                Favorite
+              </button>
+            </ion-col>
+            <ion-col text-center>
+              <button ion-button clear small color="danger" icon-start>
+                <ion-icon name='home'></ion-icon>
+                {{property.bedrooms}} Bedrooms
+              </button>
+             </ion-col>
+            <ion-col text-right>
+              <button ion-button clear small color="danger" icon-start (click)="goToProperty(property)">
+                <ion-icon name='arrow-dropright'></ion-icon>
+                More
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

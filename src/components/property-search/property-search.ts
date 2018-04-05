@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {PropertiesProvider} from "../../providers/properties/properties";
+import {Response} from "../../models/response";
 
 /**
  * Generated class for the PropertySearchComponent component.
@@ -9,9 +10,7 @@ import {PropertiesProvider} from "../../providers/properties/properties";
  * Components.
  */
 
-export interface Response {
-   result: Object;
-}
+
 
 @Component({
   selector: 'property-search',
@@ -49,7 +48,7 @@ export class PropertySearch {
   }
 
   submit(value) {
-    this.propertiesProvider.getProperties(value.location).subscribe((response : Response) => {this.properties = response.result.properties.elements;
+    this.propertiesProvider.getProperties().subscribe((response: Response) => {this.properties = response.result.properties.elements;
     console.log(this.properties)});
 
   }

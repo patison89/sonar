@@ -21,7 +21,7 @@ export class PropertiesProvider {
     console.log('Hello PropertiesProvider Provider');
     this.api = require('../../../api.config.json')
   }
-  getProperties(location) {
+  getProperties() {
     return this.http.get('http://index1.homeflow.co.uk/properties?api_key=' +this.api.key + '&search[London]');
 
   }
