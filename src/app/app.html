@@ -1,0 +1,19 @@
+<ion-split-pane>
+  <ion-menu  side="left" [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title left>
+            Sonar
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+     <property-search></property-search>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav main [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>

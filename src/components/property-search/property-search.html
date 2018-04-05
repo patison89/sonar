@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="submit(form.value)">
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Location</ion-label>
+      <ion-input type="text" formControlName="location" placeholder="Where..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Min. Price</ion-label>
+      <ion-select formControlName="minPrice">
+        <ion-option *ngFor="let price of prices" [value]="price">£{{price | number}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Max. Price</ion-label>
+      <ion-select formControlName="maxPrice">
+        <ion-option *ngFor="let price of prices" [value]="price">£{{price | number}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Min. Bedrooms</ion-label>
+      <ion-select formControlName="minBeds">
+        <ion-option *ngFor="let bedNumber of bedNumbers" [value]="bedNumber">{{bedNumber}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <button ion-button right type="submit" [disabled]="!form.valid">Search</button>
+</form>
