@@ -16,13 +16,11 @@ declare function require(url: string);
 @Injectable()
 export class PropertiesProvider {
 
-    properties: any[];
-    api;
-
+  properties: any[];
+  api;
   selectedProperties$ =  new Subject<any>();
 
   constructor(public http: HttpClient) {
-    console.log('Hello PropertiesProvider Provider');
     this.api = require('../../../api.config.json')
   }
   getProperties() {
@@ -36,24 +34,21 @@ export class PropertiesProvider {
   getSelected(value) {
     let selectedProperties :any[] = [];
     //get all properties
-     this.getProperties().subscribe((response: Response)=> {
+    this.getProperties().subscribe((response: Response)=> {
       this.properties = response.result.properties.elements;
       //iterate through properties and check if match criteria
-       this.properties.forEach(property => {
-         if (property.display_address.toLowerCase().includes(value.location.toLowerCase())
-           && property.price_value >= value.minPrice
-           && property.price_value <= value.maxPrice
-           && property.bedrooms >= value.minBeds){
-              selectedProperties.push(property);
-         }
+      this.properties.forEach(property => {
+        if (property.display_address.toLowerCase().includes(value.location.toLowerCase())
+          && property.price_value >= value.minPrice
+          && property.price_value <= value.maxPrice
+          && property.bedrooms >= value.minBeds){
+          selectedProperties.push(property);
+        }
 
-       });
-       console.log(selectedProperties);
-       this.selectedProperties$.next(selectedProperties);
-       return this.selectedProperties$;
+      });
+      this.selectedProperties$.next(selectedProperties);
+      return this.selectedProperties$;
 
     });
-
-
   }
 }

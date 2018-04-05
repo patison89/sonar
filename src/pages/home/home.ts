@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {PropertiesProvider} from "../../providers/properties/properties";
 import {PropertyPage} from "../property/property";
-import {Response} from "../../models/response";
 
 @Component({
   selector: 'page-home',
