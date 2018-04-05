@@ -11,12 +11,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {PropertySearch} from "../components/property-search/property-search";
 import { PropertiesProvider } from '../providers/properties/properties';
 import {HttpClientModule} from "@angular/common/http";
+import {PropertyPage} from "../pages/property/property";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    PropertySearch
+    PropertySearch,
+    PropertyPage
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import {HttpClientModule} from "@angular/common/http";
   entryComponents: [
     MyApp,
     HomePage,
+    PropertyPage
 
   ],
   providers: [
