@@ -1,1 +1,17 @@
-### :point_right: This starter repo has moved to the [ionic-team/starters](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/sidemenu) repo! :point_left:
+## Sonar
+
+Simple ionic app for searching properties
+
+### To start
+1. npm install -g ionic cordova
+2. git clone https://github.com/patison89/sonar.git
+3. cd sonar
+4. npm install
+5. npm run ionic:serve
+
+Please note data are provided by external API. To provide the API key create api.config.json file in main project folder and use the following format:
+```
+{
+  "key": "XXXXXXXXXXX"  
+}
+```
