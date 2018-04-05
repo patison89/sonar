@@ -1,0 +1,34 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{property.price}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+   <img  onError="this.src='../../assets/imgs/home.jpg';" src="{{property.photos[0]}}">
+   <ion-row class="property-feature">
+     <ion-col >
+         <ion-icon name='info'></ion-icon>
+       {{property.property_type | uppercase}}
+     </ion-col>
+     <ion-col text-center>
+       {{property.bedrooms}} BEDROOM(S)
+     </ion-col>
+     <ion-col text-right>
+       {{property.bathrooms}} BATHROOM(S)
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col text-center>
+       {{property.display_address}}
+     </ion-col>
+   </ion-row>
+
+   <div class="description" innerHTML="{{property.short_description}}"></div>
+
+</ion-content>

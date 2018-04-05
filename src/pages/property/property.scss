@@ -1,0 +1,13 @@
+page-property {
+  .property-feature {
+    font-size: 0.9em;
+    padding: 20px;
+    color: color($colors, danger);
+  }
+  ion-row {
+    font-weight: bold;
+  }
+  .description {
+    padding: 10px;
+  }
+}
