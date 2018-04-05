@@ -27,7 +27,7 @@ export class PropertyPage {
   }
 
   ngOnInit() {
-   this.propertiesProvider.getProperty(this.property.property_id).subscribe(response => console.log(response));
+   this.propertiesProvider.getProperty(this.property.property_id).subscribe(response => this.property = response);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PropertyPage', this.property);

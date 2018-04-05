@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import {Response} from "../../models/response";
+import {Subject} from "rxjs/Subject";
 declare function require(url: string);
 
 
@@ -14,8 +16,10 @@ declare function require(url: string);
 @Injectable()
 export class PropertiesProvider {
 
-    properties;
+    properties: any[];
     api;
+
+  selectedProperties$ =  new Subject<any>();
 
   constructor(public http: HttpClient) {
     console.log('Hello PropertiesProvider Provider');
@@ -27,6 +31,29 @@ export class PropertiesProvider {
   }
   getProperty(id) {
     return this.http.get('http://index1.homeflow.co.uk/properties'+id+'?api_key=' +this.api.key);
+
+  }
+  getSelected(value) {
+    let selectedProperties :any[] = [];
+    //get all properties
+     this.getProperties().subscribe((response: Response)=> {
+      this.properties = response.result.properties.elements;
+      //iterate through properties and check if match criteria
+       this.properties.forEach(property => {
+         if (property.display_address.toLowerCase().includes(value.location.toLowerCase())
+           && property.price_value >= value.minPrice
+           && property.price_value <= value.maxPrice
+           && property.bedrooms >= value.minBeds){
+              selectedProperties.push(property);
+         }
+
+       });
+       console.log(selectedProperties);
+       this.selectedProperties$.next(selectedProperties);
+       return this.selectedProperties$;
+
+    });
+
 
   }
 }

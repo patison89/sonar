@@ -37,7 +37,7 @@ import {PropertyPage} from "../pages/property/property";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PropertiesProvider
+    PropertiesProvider,
   ]
 })
 export class AppModule {}

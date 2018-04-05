@@ -1,30 +1,31 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import {PropertiesProvider} from "../../providers/properties/properties";
-import {Response} from "../../models/response";
 import {PropertyPage} from "../property/property";
+import {Response} from "../../models/response";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
+
 })
 export class HomePage {
 
-  properties : any[];
+  properties : any[] =[];
 
   constructor(public navCtrl: NavController,
-              private propertiesProvider: PropertiesProvider) {
+              private propertiesProvider: PropertiesProvider
+             ) {
 
   }
   ngOnInit() {
-    this.propertiesProvider.getProperties().subscribe((response: Response) => {
-      this.properties = response.result.properties.elements;
-      console.log(this.properties);
+    this.propertiesProvider.selectedProperties$.subscribe(properties => {
+      this.properties = properties;
+      console.log( this.properties);
     });
   }
 
   goToProperty(property) {
     this.navCtrl.push(PropertyPage, property);
-    console.log(property);
   }
 }
