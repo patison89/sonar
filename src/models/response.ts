@@ -7,5 +7,5 @@ export interface Properties {
 }
 
 export interface Elements {
-  properties: Object[];
+  elements: Object[];
 }

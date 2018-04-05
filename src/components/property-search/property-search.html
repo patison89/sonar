@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
   <ion-list>
     <ion-item>
-      <ion-label stacked>Location</ion-label>
+
       <ion-input type="text" formControlName="location" placeholder="Where..."></ion-input>
     </ion-item>
     <ion-item>
@@ -23,5 +23,10 @@
       </ion-select>
     </ion-item>
   </ion-list>
-  <button ion-button right type="submit" [disabled]="!form.valid">Search</button>
+  <ion-row>
+    <ion-col text-center>
+      <button ion-button right color="dark" type="submit" [disabled]="!form.valid">Search</button>
+    </ion-col>
+  </ion-row>
+
 </form>

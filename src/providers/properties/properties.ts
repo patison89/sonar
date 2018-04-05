@@ -25,4 +25,8 @@ export class PropertiesProvider {
     return this.http.get('http://index1.homeflow.co.uk/properties?api_key=' +this.api.key + '&search[London]');
 
   }
+  getProperty(id) {
+    return this.http.get('http://index1.homeflow.co.uk/properties'+id+'?api_key=' +this.api.key);
+
+  }
 }

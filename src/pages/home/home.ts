@@ -25,5 +25,6 @@ export class HomePage {
 
   goToProperty(property) {
     this.navCtrl.push(PropertyPage, property);
+    console.log(property);
   }
 }
